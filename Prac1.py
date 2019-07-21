@@ -14,15 +14,11 @@ except RuntimeError:
     
 #Pin mode
 GPIO.setmode(GPIO.BOARD)
-#Channels
+#Channels, Setup and Pull up resistors
 chan_in = [29,31]
 chan_out = [36,38,40]
 GPIO.setup(chan_out, GPIO.OUT)
-GPIO.setup(chan_in, GPIO.IN)
-
-#To read pin: GPIO.input(channel)
-#To set pin: GPIO.output(channel, state)
-# State: GPIO.HIGH/GPIO.LOW or 1/0 or True/False
+GPIO.setup(chan_in, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # Find out what value needs to be displayed
 def find_value(x):
