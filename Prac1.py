@@ -5,7 +5,8 @@ Student Number: AGSVAC001
 Prac: AGSVAC001
 Date: 21/07/2019
 """
-
+#Fixed Counter
+count = 0
 # import Relevant Librares
 try:
     import RPi.GPIO as GPIO
@@ -36,7 +37,7 @@ def find_value(x):
     return
 
 def main():   
-    count = 0 #Used as a counter
+    global count #Define counter as global
     GPIO.wait_for_edge(29, GPIO.RISING, bouncetime=200) #Interrupt waiting for edge when button pressed
     if count == 0: #Value at the extremes for wrap around
         count = 7
