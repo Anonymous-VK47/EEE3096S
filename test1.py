@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 Names: Vacquero
 Student Number: AGSVAC001
@@ -13,8 +14,8 @@ except RuntimeError:
     
 #Pin mode
 GPIO.setmode(GPIO.BOARD)
-chan_in = [29]
-chan_out = [36]
+chan_in = 29
+chan_out = 36
 GPIO.setup(chan_out, GPIO.OUT)
 GPIO.setup(chan_in, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
@@ -31,7 +32,3 @@ if __name__ == "__main__":
         print("Exiting gracefully")
         # Turn off your GPIOs here
         GPIO.cleanup()
-    except e:
-        GPIO.cleanup()
-        print("Some other error occurred")
-        print(e.message)
