@@ -19,7 +19,7 @@ GPIO.setmode(GPIO.BOARD)
 chan_in = [29,31]
 chan_out = [36,38,40]
 GPIO.setup(chan_out, GPIO.OUT)
-GPIO.setup(chan_in, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(chan_in, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # Find out what value needs to be displayed
 def find_value(x):
@@ -36,7 +36,8 @@ def find_value(x):
     GPIO.output(chan_out, (int(string_bin[0:1]), int(string_bin[1:2]), int(string_bin[2:]))) 
     return
 
-def main():   
+def main():  
+    print("working")
     global count #Define counter as global
     GPIO.wait_for_edge(29, GPIO.RISING, bouncetime=200) #Interrupt waiting for edge when button pressed
     if count == 0: #Value at the extremes for wrap around
