@@ -7,11 +7,11 @@ OBJS = obj/*
 
 default:
     mkdir -p bin obj
-    $(CC) $(CFLAGS) -c src/conversion.cpp -o obj/conversion
-    $(CC) $(CFLAGS) obj/conversion -o bin/conversion
+    $(CC) $(CFLAGS) -c src/conversion1.cpp -o obj/conversion1
+    $(CC) $(CFLAGS) obj/conversion1 -o bin/conversion1
 
 run:
-    sudo ./bin/conversion
+    sudo ./bin/conversion1
 
 clean:
     rm $(PROG) $(OBJS)
